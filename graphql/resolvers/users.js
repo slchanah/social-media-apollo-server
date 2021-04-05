@@ -19,7 +19,10 @@ const generateJwtToken = (user) =>
     { expiresIn: '1h' }
   );
 
+const encryptPassword = (password) => bcrypt.hash(password, 12);
+
 module.exports = {
+  encryptPassword,
   Mutation: {
     register: async (
       _,
@@ -44,7 +47,7 @@ module.exports = {
         });
       }
 
-      password = await bcrypt.hash(password, 12);
+      password = await encryptPassword(password);
 
       const newUser = new User({
         username,
