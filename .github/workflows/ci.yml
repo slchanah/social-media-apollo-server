@@ -22,6 +22,6 @@ jobs:
     - name: Create .env file
       uses: SpicyPizza/create-envfile@v1
       with:
-        MONGODB_URL_TEST: ${{ secrets.MONGODB_URL_TEST }}
-        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        envkey_MONGODB_URL_TEST: ${{ secrets.MONGODB_URL_TEST }}
+        envkey_SECRET_KEY: ${{ secrets.SECRET_KEY }}
     - run: npm test
